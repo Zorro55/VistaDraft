@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Version;Build"
+    xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Major>1</Major>
+    <Minor>0</Minor>
+    <Build>0</Build>
+    <Revision>0</Revision>
+    <PublishUrlHistory>publish\</PublishUrlHistory>
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+	<Target Name="Version">
+    <GitVersion LocalPath="$(MSBuildProjectDirectory)">
+        <Output TaskParameter="CommitHash" PropertyName="Revision" />
+    </GitVersion>
+    <AssemblyInfo
+        CodeLanguage="CS"
+        OutputFile="Properties\AssemblyInfo.cs"
+        AssemblyTitle="YourAssmblyName"
+        AssemblyDescription="Description"
+        AssemblyCompany=""
+        AssemblyProduct="Productname"
+        AssemblyCopyright="Copyright"
+        ComVisible="false"
+        CLSCompliant="true"
+        AssemblyInformationalVersion="$(Major).$(Minor).$(Build).$(Revision)"
+        AssemblyVersion="$(Major).$(Minor).$(Build)"
+        AssemblyFileVersion="$(Major).$(Minor).$(Build)" />
+</Target>
+</Project>

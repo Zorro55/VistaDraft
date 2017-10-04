@@ -1,0 +1,2 @@
+C:\Users\Andrejka\Desktop\vistadraft\SetupProject2\bin\Debug\SetupProject2.msi
+C:\Users\Andrejka\Desktop\vistadraft\SetupProject2\bin\Debug\SetupProject2.wixpdb

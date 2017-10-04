@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"><?define WpfApp1_TargetDir=$(var.WpfApp1.TargetDir)?>
+	<Product Id="*" Name="SetupProject2" Language="1033" Version="1.0.0.0" Manufacturer="Andrejka" UpgradeCode="657071b2-f8d2-453b-a0c8-1104b3d2035d">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="TESTFILEPRODUCTDIR" />
+
+    
+    
+    <Property Id="WixShellExecTarget" Value="[#WpfApp1.exe]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA"  DllEntry="WixShellExec"  Impersonate="yes" />
+    <Property Id="LAUNCH_APP_ON_EXIT" Value="1" />
+    <UI Id="MyWixUI_Mondo">
+      <UIRef Id="WixUI_Minimal" />
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Order="1" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 </Publish>
+      <UIRef Id="WixUI_ErrorProgressText"/>
+      </UI>
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+
+    
+    
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="SetupProject2" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="TESTFILEPRODUCTDIR" Name="SetupProject2">
+			 <Directory Id="ProgramFilesFolder">
+				 <Directory Id="INSTALLFOLDER" Name="SetupProject2" />
+       </Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="WpfApp1.exe" Guid="e9a0cd4c-7d33-436c-8b72-2c5837cf773a">
+			  <File Id="WpfApp1.exe" Name="WpfApp1.exe" Source="$(var.WpfApp1_TargetDir)WpfApp1.exe" />
+			</Component>
+			<Component Id="WpfApp1.exe.config" Guid="db4bc276-df1f-4137-bea3-d1a8725974fc">
+			  <File Id="WpfApp1.exe.config" Name="WpfApp1.exe.config" Source="$(var.WpfApp1_TargetDir)WpfApp1.exe.config" />
+			</Component>
+			<Component Id="aws_sdk_net_core_support.dll" Guid="795acc56-0363-41be-84a0-e4ab0cfb9fcc">
+			  <File Id="aws_sdk_net_core_support.dll" Name="aws-sdk-net-core-support.dll" Source="$(var.WpfApp1_TargetDir)aws-sdk-net-core-support.dll" />
+			</Component>
+			<Component Id="AWSSDK.Core.dll" Guid="bac10847-f9c8-47c3-a05b-47c106928e9d">
+			  <File Id="AWSSDK.Core.dll" Name="AWSSDK.Core.dll" Source="$(var.WpfApp1_TargetDir)AWSSDK.Core.dll" />
+			</Component>
+			<Component Id="AWSSDK.SimpleNotificationService.dll" Guid="22e2ea63-5240-417f-90e9-3ed5505ee199">
+			  <File Id="AWSSDK.SimpleNotificationService.dll" Name="AWSSDK.SimpleNotificationService.dll" Source="$(var.WpfApp1_TargetDir)AWSSDK.SimpleNotificationService.dll" />
+			</Component>
+			<Component Id="MimeSharp.dll" Guid="485dfd7e-c3d4-4faa-b42c-6b80e8a10d5f">
+			  <File Id="MimeSharp.dll" Name="MimeSharp.dll" Source="$(var.WpfApp1_TargetDir)MimeSharp.dll" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

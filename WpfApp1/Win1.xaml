@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfApp1.Win1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Win1" Height="500" Width="500">
+    <Grid>
+        <Image Source="C:\Users\Andrejka\Desktop\vistadraft\WpfApp1\images\logo.jpg" Margin="210,-58,213,294"/>
+        <TextBlock x:Name = "Wellcome" HorizontalAlignment = "Left"
+         Margin = "71,113,-15,0" TextWrapping = "Wrap"
+         VerticalAlignment = "Top" Height = "44" Width = "436" FontFamily="Times New Roman" FontWeight="Bold" FontSize="18" ><Run Text="                    Welcome to VistaDraft"/><LineBreak/><Run Text="         Inderstand and draft better contracts"/></TextBlock>
+        <TextBlock x:Name = "Copyright" HorizontalAlignment = "Left"
+         Margin = "71,373,-15,0" TextWrapping = "Wrap"
+         VerticalAlignment = "Top" Height = "44" Width = "436" FontFamily="Times New Roman" FontWeight="Bold" FontSize="18" ><Run FontSize="11" Text="                         "/><Run FontWeight="Normal" FontSize="11" Text="2017 VistaDraft LTD. All rights reserved"/><LineBreak/></TextBlock>
+        <Button Content="Create account"
+                HorizontalAlignment="Left"
+                Margin="94,247,0,0"
+                VerticalAlignment="Top"
+                Width="113"
+                Click="Create" Height="34">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                    <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                    <GradientStop Color="#FF25C12C" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Log in"
+                HorizontalAlignment="Left"
+                Margin="283,247,0,0"
+                VerticalAlignment="Top"
+                Width="113"
+                Click="Login" Height="34">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                    <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                    <GradientStop Color="#FF7095F7" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>
